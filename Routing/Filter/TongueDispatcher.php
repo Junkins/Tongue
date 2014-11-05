@@ -26,7 +26,12 @@ class TongueDispatcher extends DispatcherFilter {
                 if (!$className) {
                     continue;
                 }
-                $type = new $className($request->params['pass'][$i]);
+                if (isset($request->params['pass'][$i])) {
+                    $value = $request->params['pass'][$i];
+                } else {
+                    $value = null;
+                }
+                $type = new $className($value);
                 $type->check();
                 $request->params['pass'][$i] = $type;
             }
