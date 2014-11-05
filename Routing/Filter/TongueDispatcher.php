@@ -1,8 +1,17 @@
 <?php
 App::uses('DispatcherFilter', 'Routing');
 
+/**
+ * TongueDispatcher
+ *
+ */
 class TongueDispatcher extends DispatcherFilter {
 
+/**
+ * beforeDispatch
+ *
+ * @param CakeEvent $event
+ */
     public function beforeDispatch(CakeEvent $event) {
         $request = $event->data['request'];
         $response = $event->data['response'];
@@ -26,6 +35,7 @@ class TongueDispatcher extends DispatcherFilter {
 
 /**
  * copy from lib/Cake/Routing/Dispatcher.php
+ * -----------------------------------------
  * Get controller to use, either plugin controller or application controller
  *
  * @param CakeRequest $request Request object
@@ -46,6 +56,7 @@ class TongueDispatcher extends DispatcherFilter {
 
 /**
  * copy from lib/Cake/Routing/Dispatcher.php
+ * -----------------------------------------
  * Load controller and return controller class name
  *
  * @param CakeRequest $request Request instance.

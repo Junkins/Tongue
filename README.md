@@ -1,5 +1,6 @@
-# Tongue Plugin
-Tongue Plugin is CakePHP controller action type hinting plugin.
+# Tongue
+
+"Tongue" is CakePHP controller action **dirty** "TypeHinting" plugin.
 
 ## License
 
