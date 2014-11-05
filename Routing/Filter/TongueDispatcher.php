@@ -1,5 +1,6 @@
 <?php
 App::uses('DispatcherFilter', 'Routing');
+App::uses('TNumeric', 'Tongue.Lib/TypeHinting');
 
 /**
  * TongueDispatcher
@@ -20,8 +21,14 @@ class TongueDispatcher extends DispatcherFilter {
         try {
             $method = new ReflectionMethod($controller, $request->params['action']);
             $params = $method->getParameters();
-            foreach ($params as $key => $param) {
-                $class = $param->getClass();
+            foreach ($params as $i => $param) {
+                $className = $param->getClass()->getName();
+                if (!$className) {
+                    continue;
+                }
+                $type = new $className($request->params['pass'][$i]);
+                $type->check();
+                $request->params['pass'][$i] = $type;
             }
         } catch (ReflectionException $e) {
             throw new MissingActionException(array(
