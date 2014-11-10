@@ -5,12 +5,9 @@
 ## Usage
 
 ```php
-// bootstrap.php
-Configure::write('Dispatcher.filters', array(
-    'AssetDispatcher',
-    'CacheDispatcher',
-    'Tongue.TongueDispatcher', // Add
-));
+    public $components = array(
+        'Tongue.Tongue'
+    );
 ```
 
 ```php
