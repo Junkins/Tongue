@@ -1,6 +1,6 @@
 <?php
-
 App::uses('TNumeric', 'Tongue.Lib/TypeHinting');
+App::uses('TNaturalNumber', 'Tongue.Lib/TypeHinting');
 
 class TongueComponent extends Component {
 
@@ -13,6 +13,7 @@ class TongueComponent extends Component {
     public function startup(Controller $controller) {
 
         try {
+
             $action = $controller->request->params['action'];
             $method = new ReflectionMethod($controller, $action);
             $params = $method->getParameters();
@@ -39,7 +40,7 @@ class TongueComponent extends Component {
         } catch (ReflectionException $e) {
             throw new MissingActionException(array(
                 'controller' => $controller->name . "Controller",
-                'action' => $controller->request->params['action']
+                'action' => $action
             ));
         }
     }
