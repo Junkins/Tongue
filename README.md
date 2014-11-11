@@ -5,13 +5,11 @@
 ## Usage
 
 ```php
-    public $components = array(
-        'Tongue.Tongue'
-    );
-```
-
-```php
 // PostsController.php
+    public $components = [
+        'Tongue.Tongue'
+    ];
+
     public function view(TNumeric $id) { // <= TypeHinting!!!
         $post = $this->Post->findById($id);
         $this->set(compact('post'));
