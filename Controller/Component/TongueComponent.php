@@ -22,7 +22,14 @@ class TongueComponent extends Component {
 
             if ( !empty($params) ) {
                 foreach ($params as $i => $param) {
-                    $className = $param->getClass()->getName();
+
+                    $class = $param->getClass();
+                    // Class unspecified case 
+                    if (is_null($class)) {
+                        continue;
+                    }
+
+                    $className = $class->getName();
                     if (!$className) {
                         continue;
                     }
