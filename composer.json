@@ -1,0 +1,31 @@
+{
+    "name": "junkins/tongue",
+    "description": "Tongue is CakePHP controller action **dirty** TypeHinting plugin.",
+    "type": "cakephp-plugin",
+    "keywords": ["cakephp", "type hinting"],
+    "homepage": "https://github.com/Junkins/Tongue",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Junkins",
+            "homepage": "https://github.com/Junkins",
+            "role": "Author"
+        },
+        {
+            "name": "saku",
+            "homepage": "https://github.com/kozo",
+            "role": "Author"
+        },
+        {
+            "name": "Ken'ichiro Oyama",
+            "homepage": "https://github.com/k1LoW",
+            "role": "Author"
+        }
+    ],
+    "require": {
+        "composer/installers": "*"
+    },
+    "require-dev": {
+		"phpunit/phpunit": "3.7.*"
+	}
+}
