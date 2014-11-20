@@ -24,7 +24,7 @@ class TongueComponent extends Component {
                 foreach ($params as $i => $param) {
 
                     $class = $param->getClass();
-                    // Class unspecified case 
+                    // Class unspecified case
                     if (is_null($class)) {
                         continue;
                     }
@@ -39,6 +39,9 @@ class TongueComponent extends Component {
                         $value = null;
                     }
                     $type = new $className($value);
+                    if (!($type instanceof TongueTypeInterface)) {
+                        throw new LogicException($className . ' should be instance of TongueTypeInterface.');
+                    }
                     $type->check();
                     $controller->request->params['pass'][$i] = $type;
                 }
